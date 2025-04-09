@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="google" content="notranslate" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yes, This Is Me</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #0a0c12;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "Orbitron", sans-serif;
+        overflow: hidden;
+        perspective: 1000px;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 30%,
+            rgba(74, 144, 226, 0.1) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(138, 182, 249, 0.1) 0%,
+            transparent 20%
+          ),
+          linear-gradient(rgba(15, 23, 42, 0.5) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15, 23, 42, 0.5) 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.4;
+      }
+
+      .circle-wrapper {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #111827;
+        animation: glow 2s ease-in-out infinite;
+        border: 2px solid rgba(74, 144, 226, 0.2);
+        box-shadow: 0 0 30px #4a90e244, 0 0 60px #4a90e222,
+          inset 0 0 20px rgba(74, 144, 226, 0.3);
+        transition: all 0.5s ease;
+      }
+
+      .circle-wrapper:hover {
+        transform: scale(1.02) rotateY(5deg);
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          box-shadow: 0 0 30px #4a90e244, 0 0 60px #4a90e222,
+            inset 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px #4a90e2aa, 0 0 80px #4a90e266,
+            inset 0 0 30px rgba(74, 144, 226, 0.5);
+        }
+      }
+
+      .wave {
+        position: absolute;
+        width: 200%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 C300,0 900,100 1200,50 L1200,100 L0,100 Z" fill="%234A90E2"/></svg>');
+        background-repeat: repeat-x;
+        background-size: 50% 100%;
+        animation: waveAnim 4s linear infinite;
+        left: 0;
+        top: 100%;
+        transition: top 2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.8));
+        opacity: 0.9;
+      }
+
+      @keyframes waveAnim {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .inner-circle {
+        position: absolute;
+        width: 85%;
+        height: 85%;
+        background: #0f1117;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 1;
+        border: 1px solid rgba(74, 144, 226, 0.2);
+        box-shadow: inset 0 0 30px rgba(74, 144, 226, 0.1),
+          inset 0 0 10px rgba(74, 144, 226, 0.2);
+      }
+
+      .text {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        text-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+        width: 100%;
+      }
+
+      .text h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        background: linear-gradient(90deg, #4a90e2, #8ab6f9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-complete {
+        display: inline-block;
+        background: transparent;
+        color: #4a90e2;
+        border: 2px solid #4a90e2;
+        padding: 12px 32px;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 0 15px #4a90e2, inset 0 0 10px rgba(74, 144, 226, 0.3);
+        position: relative;
+        overflow: hidden;
+        font-family: "Orbitron", sans-serif;
+        letter-spacing: 1px;
+        min-width: 180px;
+        text-decoration: none;
+      }
+
+      .btn-complete:hover {
+        background: rgba(74, 144, 226, 0.2);
+        box-shadow: 0 0 20px #4a90e2, inset 0 0 15px rgba(74, 144, 226, 0.4);
+        transform: translateY(-2px);
+      }
+
+      .btn-complete:active {
+        transform: translateY(0);
+        box-shadow: 0 0 10px #4a90e2, inset 0 0 5px rgba(74, 144, 226, 0.4);
+      }
+
+      .btn-complete::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          to bottom right,
+          transparent,
+          transparent,
+          transparent,
+          rgba(74, 144, 226, 0.3),
+          transparent
+        );
+        transform: rotate(30deg);
+        animation: shine 3s infinite;
+      }
+
+      @keyframes shine {
+        0% {
+          left: -50%;
+        }
+        100% {
+          left: 150%;
+        }
+      }
+
+      .particles-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(74, 144, 226, 0.6);
+        border-radius: 50%;
+        filter: blur(1px);
+        animation: float linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .progress-ring {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .progress-ring circle {
+        fill: transparent;
+        stroke: rgba(74, 144, 226, 0.2);
+        stroke-width: 2;
+        stroke-linecap: round;
+      }
+
+      .progress-ring circle.progress {
+        stroke: url(#gradient);
+        stroke-dasharray: 1256;
+        stroke-dashoffset: 1256;
+        transition: stroke-dashoffset 0.3s ease;
+        filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.7));
+      }
+
+      @media (max-width: 500px) {
+        .circle-wrapper {
+          width: 300px;
+          height: 300px;
+        }
+
+        .text h1 {
+          font-size: 2rem;
+        }
+
+        .btn-complete {
+          padding: 10px 24px;
+          font-size: 1rem;
+        }
+      }
+
+      @keyframes loadingComplete {
+        0% {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .loading-complete {
+        animation: loadingComplete 1.5s ease-out forwards;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="particles-container" id="particles"></div>
+    <div class="circle-wrapper">
+      <svg class="progress-ring" viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4a90e2" />
+            <stop offset="100%" stop-color="#8ab6f9" />
+          </linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="190"></circle>
+        <circle class="progress" cx="200" cy="200" r="190"></circle>
+      </svg>
+      <div class="wave" id="wave"></div>
+      <div class="inner-circle"></div>
+      <div class="text">
+        <h1>READY FOR ACCESS</h1>
+        <a href="start/start.html">
+          <button class="btn-complete loading-complete">ACCESS</button>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const waveEl = document.getElementById("wave");
+      const particlesEl = document.getElementById("particles");
+      const progressRing = document.querySelector(".progress-ring .progress");
+      const circleWrapper = document.querySelector(".circle-wrapper");
+
+      function createParticles() {
+        const particleCount = 50;
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          const size = Math.random() * 6 + 2;
+          const posX = Math.random() * 100;
+          const duration = Math.random() * 10 + 5;
+          const delay = Math.random() * 5;
+          const opacity = Math.random() * 0.6 + 0.2;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${posX}%`;
+          particle.style.animationDuration = `${duration}s`;
+          particle.style.animationDelay = `${delay}s`;
+          particle.style.opacity = opacity;
+
+          if (Math.random() > 0.7) {
+            particle.style.background = `rgba(138, 182, 249, ${opacity})`;
+          }
+
+          particlesEl.appendChild(particle);
+        }
+      }
+
+      function animateLoading() {
+        waveEl.style.top = "0%";
+
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 1;
+          const offset = 1256 - (progress / 100) * 1256;
+          progressRing.style.strokeDashoffset = offset;
+
+          if (progress >= 100) {
+            clearInterval(interval);
+            circleWrapper.style.animation = "glow 0.8s ease-in-out infinite";
+          }
+        }, 20);
+      }
+
+      createParticles();
+
+      setTimeout(animateLoading, 500);
+
+      circleWrapper.addEventListener("mousemove", (e) => {
+        const rect = circleWrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        const distance = Math.sqrt(x * x + y * y);
+        if (distance < 200) {
+          const angle = Math.atan2(y, x);
+          const waveX = Math.cos(angle) * 10;
+          const waveY = Math.sin(angle) * 10;
+
+          waveEl.style.transform = `translateX(-50%) translate(${waveX}px, ${waveY}px)`;
+        }
+      });
+
+      circleWrapper.addEventListener("mouseleave", () => {
+        waveEl.style.transform = "translateX(-50%)";
+      });
+    </script>
+  </body>
+</html>
