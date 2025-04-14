@@ -60,7 +60,6 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🌐 Social Media
 
-- 🔄 Reorder buttons for better UX
 - 🔙 optimize **Home button**
 - 📄 Subpages feel **empty** — fill in with relevant content
 
