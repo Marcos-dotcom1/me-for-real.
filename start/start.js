@@ -10,25 +10,25 @@ function moveCarousel() {
 }
 setInterval(moveCarousel, 3000);
 
-const toggleSwitch = document.getElementById("darkModeToggle");
-const body = document.body;
-const switchSound = new Audio("https://www.fesliyanstudios.com/play-mp3/4382");
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("modeToggle");
+  const body = document.body;
 
-if (localStorage.getItem("darkMode") === "enabled") {
-  body.classList.add("light-mode");
-  toggleSwitch.checked = true;
-}
-
-toggleSwitch.addEventListener("change", function () {
-  switchSound.play();
-  if (this.checked) {
+  if (localStorage.getItem("mode") === "light") {
     body.classList.add("light-mode");
-    localStorage.setItem("darkMode", "enabled");
-  } else {
-    body.classList.remove("light-mode");
-    localStorage.setItem("darkMode", "disabled");
+    toggle.checked = true;
   }
+
+  toggle.addEventListener("change", () => {
+    body.classList.toggle("light-mode");
+    if (body.classList.contains("light-mode")) {
+      localStorage.setItem("mode", "light");
+    } else {
+      localStorage.setItem("mode", "dark");
+    }
+  });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
   const navLinks = document.querySelector(".nav-links");
@@ -52,4 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+});
+const toggle = document.querySelector(".mobile-menu-toggle");
+const nav = document.querySelector("nav ul");
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("show");
+  toggle.classList.toggle("active");
 });
