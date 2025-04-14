@@ -13,10 +13,7 @@ A summary of key areas to improve across all pages to enhance user experience an
 - 🐱 add other "cat" page
 - 📱 Mobile menu toggle isn't working — needs fix
 - ⚪ Lightmode Issues:
-  - 🔁 "See more" flash color
-  - 🔗 Underline on cat pages looks off
   - 💾 Lightmode preference not saving in **local storage**
-  - 🎨 Lightmode switch has suboptimal colors
 - 🐞 Console throws an unexpected error — investigate!
 
 ---

@@ -207,6 +207,23 @@ header {
   transition: all 0.5s;
   opacity: 0;
 }
+.light-mode .hero-content button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent 45%,
+    rgba(0, 51, 102, 0.5) 50%,
+    transparent 55%
+  );
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
 
 .hero-content button:hover::before {
   animation: shine 1.5s;
@@ -330,6 +347,17 @@ footer ul li a::after {
   width: 0;
   height: 2px;
   background-color: #00f7ff;
+  transition: width 0.3s;
+}
+
+.light-mode ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #003366;
   transition: width 0.3s;
 }
 
@@ -486,7 +514,7 @@ footer ul li a:hover::after {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: rgba(0, 247, 255, 0.2);
+  background-color: #00f7ff73;
   transition: 0.4s;
   border-radius: 50%;
   display: flex;
@@ -503,7 +531,7 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
   content: "☀️";
-  background-color: rgba(0, 51, 102, 0.2);
+  background-color: #00336673;
 }
 
 a {
