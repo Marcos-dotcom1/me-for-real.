@@ -29,3 +29,27 @@ toggleSwitch.addEventListener("change", function () {
     localStorage.setItem("darkMode", "disabled");
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  mobileMenuToggle.addEventListener("click", function () {
+    this.classList.toggle("active");
+    navLinks.classList.toggle("show");
+  });
+
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  darkModeToggle.addEventListener("change", function () {
+    document.body.classList.toggle("light-mode");
+  });
+
+  const navItems = document.querySelectorAll(".nav-links a");
+  navItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      if (window.innerWidth <= 768) {
+        mobileMenuToggle.classList.remove("active");
+        navLinks.classList.remove("show");
+      }
+    });
+  });
+});
