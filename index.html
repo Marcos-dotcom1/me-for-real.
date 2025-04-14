@@ -46,12 +46,13 @@
 
       .circle-wrapper {
         position: relative;
-        width: 400px;
-        height: 400px;
+        width: 80vw;
+        max-width: 400px;
+        aspect-ratio: 1;
         border-radius: 50%;
         overflow: hidden;
         background: #111827;
-        animation: glow 2s ease-in-out infinite;
+        animation: glow 3s ease-in-out infinite;
         border: 2px solid rgba(74, 144, 226, 0.2);
         box-shadow: 0 0 30px #4a90e244, 0 0 60px #4a90e222,
           inset 0 0 20px rgba(74, 144, 226, 0.3);
@@ -126,14 +127,14 @@
       }
 
       .text h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
         font-weight: bold;
         background: linear-gradient(90deg, #4a90e2, #8ab6f9);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         letter-spacing: 2px;
-        margin-bottom: 30px;
+        margin-bottom: 2rem;
         transition: all 0.3s ease;
       }
 
@@ -142,8 +143,8 @@
         background: transparent;
         color: #4a90e2;
         border: 2px solid #4a90e2;
-        padding: 12px 32px;
-        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+        font-size: clamp(1rem, 4vw, 1.1rem);
         border-radius: 30px;
         cursor: pointer;
         transition: all 0.3s;
@@ -152,7 +153,7 @@
         overflow: hidden;
         font-family: "Orbitron", sans-serif;
         letter-spacing: 1px;
-        min-width: 180px;
+        min-width: 150px;
         text-decoration: none;
       }
 
@@ -252,16 +253,16 @@
 
       @media (max-width: 500px) {
         .circle-wrapper {
-          width: 300px;
-          height: 300px;
+          width: 90vw;
+          height: 90vw;
         }
 
         .text h1 {
-          font-size: 2rem;
+          font-size: clamp(1.2rem, 6vw, 2rem);
         }
 
         .btn-complete {
-          padding: 10px 24px;
+          padding: 0.6rem 1.6rem;
           font-size: 1rem;
         }
       }
@@ -316,7 +317,7 @@
       const circleWrapper = document.querySelector(".circle-wrapper");
 
       function createParticles() {
-        const particleCount = 50;
+        const particleCount = 0; //add particles
         for (let i = 0; i < particleCount; i++) {
           const particle = document.createElement("div");
           particle.classList.add("particle");
@@ -353,7 +354,7 @@
 
           if (progress >= 100) {
             clearInterval(interval);
-            circleWrapper.style.animation = "glow 0.8s ease-in-out infinite";
+            circleWrapper.style.animation = "glow 4s ease-in-out infinite";
           }
         }, 20);
       }
@@ -379,6 +380,21 @@
 
       circleWrapper.addEventListener("mouseleave", () => {
         waveEl.style.transform = "translateX(-50%)";
+      });
+      circleWrapper.addEventListener("touchmove", (e) => {
+        const touch = e.touches[0];
+        const rect = circleWrapper.getBoundingClientRect();
+        const x = touch.clientX - rect.left - rect.width / 2;
+        const y = touch.clientY - rect.top - rect.height / 2;
+
+        const distance = Math.sqrt(x * x + y * y);
+        if (distance < rect.width / 2) {
+          const angle = Math.atan2(y, x);
+          const waveX = Math.cos(angle) * 10;
+          const waveY = Math.sin(angle) * 10;
+
+          waveEl.style.transform = `translateX(-50%) translate(${waveX}px, ${waveY}px)`;
+        }
       });
     </script>
   </body>

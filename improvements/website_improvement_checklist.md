@@ -6,10 +6,6 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🏠 Index
 
-- ✨ remove particles at the top of the screen
-- 📱 Ensure full responsiveness across devices
-- 💡 Slow down the **glow pulse** effect
-
 ---
 
 ## 🚀 Start Page
