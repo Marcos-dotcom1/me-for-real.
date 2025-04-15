@@ -8,25 +8,24 @@ body {
   background: #000;
   font-family: "Orbitron", sans-serif;
   color: #ff6b00;
-  overflow: hidden;
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
 }
 
 .page-wrapper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   padding: 2rem;
   perspective: 1000px;
 }
 
 .cyber-grid {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background-image: linear-gradient(
@@ -41,8 +40,9 @@ body {
 .pillar {
   position: absolute;
   top: 0;
-  width: 100px;
-  height: 100vh;
+  bottom: 0;
+  width: clamp(30px, 10vw, 100px);
+  height: 100%;
   background: linear-gradient(
     to bottom,
     rgba(255, 107, 0, 0.3),
@@ -54,6 +54,14 @@ body {
     inset 0 0 10px rgba(255, 107, 0, 0.5);
   z-index: 1;
   animation: pillarGlow 4s ease-in-out infinite;
+}
+
+.pillar.left {
+  left: 0;
+}
+
+.pillar.right {
+  right: 0;
 }
 
 @keyframes pillarGlow {
@@ -70,9 +78,10 @@ body {
 .content-container {
   position: relative;
   z-index: 3;
+  width: 90%;
   max-width: 800px;
   text-align: center;
-  padding: 3rem;
+  padding: clamp(1rem, 3vw, 3rem);
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 107, 0, 0.5);
   border-radius: 15px;
@@ -80,6 +89,7 @@ body {
   box-shadow: 0 0 40px rgba(255, 107, 0, 0.6);
   animation: float 6s ease-in-out infinite;
   transition: transform 0.3s ease;
+  margin: 2rem 0;
 }
 
 .content-container:hover {
@@ -88,8 +98,8 @@ body {
 }
 
 .content-section {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  padding: clamp(0.5rem, 2vw, 1.5rem);
   position: relative;
   transition: all 0.3s ease;
 }
@@ -99,16 +109,17 @@ body {
 }
 
 .content-section h1 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 6vw, 3rem);
   background: linear-gradient(90deg, #ff6b00, #ff6b00, #ff6b00);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow: 0 0 15px #ff6b00;
-  margin-bottom: 1.5rem;
-  letter-spacing: 4px;
+  margin-bottom: clamp(0.5rem, 2vw, 1.5rem);
+  letter-spacing: clamp(1px, 1vw, 4px);
   animation: gradientShift 4s linear infinite, textGlitch 5s infinite;
+  line-height: 1.3;
 }
 
 @keyframes textGlitch {
@@ -133,14 +144,16 @@ body {
 }
 
 .content-section p {
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
   text-shadow: 0 0 10px #ff6b00;
   position: relative;
-  padding: 1rem;
+  padding: clamp(0.5rem, 1.5vw, 1rem);
   background: rgba(0, 0, 0, 0.4);
   border-left: 3px solid #ff6b00;
   transition: all 0.3s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .content-section p:hover {
@@ -174,7 +187,7 @@ body {
 }
 
 .binary-rain {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -186,7 +199,7 @@ body {
 .binary-digit {
   position: absolute;
   color: #ff6b00;
-  font-size: 14px;
+  font-size: clamp(10px, 2vw, 14px);
   animation: fall 10s linear infinite;
 }
 
@@ -224,13 +237,13 @@ body {
 }
 
 .button-home {
-  width: 70px;
-  height: 70px;
+  width: clamp(50px, 12vw, 70px);
+  height: clamp(50px, 12vw, 70px);
   padding: 20px;
   font-size: 16px;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: clamp(15px, 3vw, 30px);
+  right: clamp(15px, 3vw, 30px);
   border-radius: 50%;
   color: #fff;
   display: flex;
@@ -256,7 +269,59 @@ body {
 .button-home img {
   opacity: 0;
   transition: opacity 0.3s ease;
-  width: 24px;
-  height: 24px;
+  width: clamp(18px, 3vw, 24px);
+  height: clamp(18px, 3vw, 24px);
   filter: brightness(0) invert(1);
+}
+
+@media screen and (max-width: 768px) {
+  .page-wrapper {
+    padding: 1rem;
+    perspective: 500px;
+  }
+
+  .content-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .cyber-grid {
+    background-size: 15px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-wrapper {
+    padding: 0.5rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .content-container {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .content-section h1 {
+    line-height: 1.2;
+  }
+
+  .content-section p {
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-height: 700px) {
+  .page-wrapper {
+    align-items: flex-start;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
