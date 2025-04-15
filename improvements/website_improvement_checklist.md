@@ -12,8 +12,6 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 - 🐱 add other "cat" page
 - 📱 Mobile menu toggle isn't working — needs fix
-- ⚪ Lightmode Issues:
-  - 💾 Lightmode preference not saving in **local storage**
 
 ---
 

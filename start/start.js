@@ -13,24 +13,41 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(moveCarousel, 3000);
   }
 
-  const toggle = document.getElementById("modeToggle");
   const body = document.body;
+  const modeToggle = document.getElementById("modeToggle");
+  const darkModeToggle = document.getElementById("darkModeToggle");
 
-  if (toggle) {
-    if (localStorage.getItem("mode") === "light") {
-      body.classList.add("light-mode");
-      toggle.checked = true;
-    }
+  // Apply saved mode on load
+  const savedMode = localStorage.getItem("mode");
+  if (savedMode === "light") {
+    body.classList.add("light-mode");
+    if (modeToggle) modeToggle.checked = true;
+    if (darkModeToggle) darkModeToggle.checked = true;
+  } else {
+    body.classList.remove("light-mode");
+    if (modeToggle) modeToggle.checked = false;
+    if (darkModeToggle) darkModeToggle.checked = false;
+  }
 
-    toggle.addEventListener("change", () => {
-      body.classList.toggle("light-mode");
-      localStorage.setItem(
-        "mode",
-        body.classList.contains("light-mode") ? "light" : "dark"
-      );
+  // Sync both toggles
+  function updateMode(isLight) {
+    body.classList.toggle("light-mode", isLight);
+    localStorage.setItem("mode", isLight ? "light" : "dark");
+    if (modeToggle) modeToggle.checked = isLight;
+    if (darkModeToggle) darkModeToggle.checked = isLight;
+  }
+
+  if (modeToggle) {
+    modeToggle.addEventListener("change", () => {
+      updateMode(modeToggle.checked);
     });
   }
 
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("change", () => {
+      updateMode(darkModeToggle.checked);
+    });
+  }
   const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
@@ -50,14 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
-  const darkModeToggle = document.getElementById("darkModeToggle");
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("change", function () {
-      document.body.classList.toggle("light-mode");
-    });
-  }
-
   const toggleMenu = document.querySelector(".mobile-menu-toggle");
   const nav = document.querySelector("nav ul");
   if (toggleMenu && nav) {
