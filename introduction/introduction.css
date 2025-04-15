@@ -1,3 +1,6 @@
+html {
+  font-size: clamp(14px, 1.5vw, 18px);
+}
 * {
   margin: 0;
   padding: 0;
@@ -128,8 +131,8 @@ body::before {
 .content {
   z-index: 3;
   text-align: center;
-  max-width: 80%;
-  padding: 3rem;
+  padding: clamp(1rem, 4vw, 3rem);
+  max-width: 90vw;
   background: none;
   border-radius: 0;
   box-shadow: none;
@@ -210,36 +213,39 @@ p {
 .button-home {
   width: 70px;
   height: 70px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid #00ff00;
-  border-radius: 50%;
+  padding: 20px;
+  font-size: 16px;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00 inset;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
   z-index: 1000;
-  backdrop-filter: blur(3px);
+  background-color: transparent;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00 inset;
 }
 
 .button-home:hover {
-  background-color: #00ff00;
-  box-shadow: 0 0 25px #00ff00, 0 0 80px #00ff00;
-  transform: scale(1.1) rotate(90deg);
-}
-
-.button-home img {
-  width: 32px;
-  height: 32px;
-  filter: invert(100%) drop-shadow(0 0 5px #00ff00);
-  transition: all 0.4s ease;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ff00, 0 0 60px #00ff00;
+  background: linear-gradient(45deg, #00ff00, #00ff00, #00ff00);
 }
 
 .button-home:hover img {
-  filter: invert(0%) drop-shadow(0 0 10px #000);
+  opacity: 1;
+}
+
+.button-home img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
 
 .scanline {

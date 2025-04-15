@@ -24,6 +24,13 @@ body {
 }
 
 .cat-container {
+  max-height: 100%;
+  max-width: 100%;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   font-size: 1em;
   filter: brightness(1.2) contrast(1.1);
@@ -40,6 +47,10 @@ body {
 }
 
 .cat-body {
+  white-space: pre;
+  font-size: min(1.6vw, 14px);
+  line-height: 1.1;
+  text-align: center;
   animation: breathe 3.5s ease-in-out infinite;
   position: relative;
   z-index: 3;
@@ -90,6 +101,12 @@ body {
   );
   animation: scan 8s linear infinite;
   pointer-events: none;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .cat {
+    font-size: min(2vw, 12px);
+  }
 }
 
 @keyframes breathe {
@@ -154,6 +171,7 @@ body {
     transition-duration: 0.001s !important;
   }
 }
+
 .button-home {
   width: 35px;
   height: 35px;
@@ -163,20 +181,33 @@ body {
   bottom: 20px;
   right: 20px;
   border-radius: 50%;
-  color: #0a0a0a;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px #20c20e, 0 0 20px #20c20e inset;
   transition: all 0.3s ease;
   text-decoration: none;
   z-index: 1000;
+  background-color: transparent;
+  box-shadow: 0 0 10px #20c20e, 0 0 20px #20c20e inset;
 }
 
 .button-home:hover {
-  background-color: #20c20e;
-  color: #0a0a0a;
+  transform: scale(1.1);
   box-shadow: 0 0 20px #20c20e, 0 0 60px #20c20e;
+  background: linear-gradient(45deg, #20c20e, #20c20e, #20c20e);
+}
+
+.button-home:hover img {
+  opacity: 1;
+}
+
+.button-home img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
 
 .binary-rain {

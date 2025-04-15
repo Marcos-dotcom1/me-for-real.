@@ -19,41 +19,28 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🎸 Guitars
 
-- 🔙 optimize **Home button**
-
 ---
 
 ## 🎬 Intro
-
-- 🔙 optimize **Home button**
-- 📱 Ensure responsiveness on all devices
 
 ---
 
 ## 📜 Philosophy
 
-- 🔙 optimize **Home button**
 - 📱 Make layout responsive
 
 ---
 
 ## 🧠 Interests
 
-- ❌ Feels **empty** — add content
-- 🔙 optimize **Home button**
-
 ---
 
 ## 🐈 Cat Page(s)
-
-- 🔙 optimize **Home button**
-- 📱 Improve responsiveness
 
 ---
 
 ## 🌐 Social Media
 
-- 🔙 optimize **Home button**
 - 📄 Subpages feel **empty** — fill in with relevant content
 
 ---

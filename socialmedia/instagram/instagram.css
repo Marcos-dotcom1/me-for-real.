@@ -52,10 +52,11 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px #962fbf, 0 0 20px #d62976 inset;
   transition: all 0.3s ease;
   text-decoration: none;
   z-index: 1000;
+  background-color: transparent;
+  box-shadow: 0 0 10px #962fbf, 0 0 20px #d62976 inset;
 }
 
 .button-home:hover {
@@ -64,7 +65,13 @@ p {
   background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
 }
 
+.button-home:hover img {
+  opacity: 1;
+}
+
 .button-home img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
   width: 24px;
   height: 24px;
   filter: brightness(0) invert(1);

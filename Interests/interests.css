@@ -1,11 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
-
+* {
+  box-sizing: border-box;
+}
+html,
 body {
   margin: 0;
-  background: #000;
-  color: #fff;
-  font-family: "Orbitron", sans-serif;
+  padding: 0;
   overflow-x: hidden;
+  font-family: "Orbitron", sans-serif;
+}
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #000;
+}
+
+.button-home {
+  width: 70px;
+  height: 70px;
+  padding: 20px;
+  font-size: 16px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  z-index: 1000;
+  background-color: transparent;
+  box-shadow: 0 0 10px #ffff33, 0 0 20px #ffff33 inset;
+}
+
+.button-home:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ffff33, 0 0 60px #ffff33;
+  background: linear-gradient(45deg, #ffff33, #ffff33, #ffff33);
+}
+
+.button-home:hover img {
+  opacity: 1;
+}
+
+.button-home img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
 
 h1 {
@@ -15,7 +63,6 @@ h1 {
   text-align: center;
   margin-top: 50px;
 }
-
 .bubble-container {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +70,6 @@ h1 {
   gap: 30px;
   padding: 60px 20px;
 }
-
 .bubble {
   background: rgba(255, 255, 51, 0.1);
   border: 2px solid #ffff33;
@@ -39,42 +85,29 @@ h1 {
   box-shadow: 0 0 15px #ffff33;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
 }
-
-.bubble:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px #ffff33, 0 0 35px #ffff33 inset;
-}
-
-.popup {
-  position: fixed;
+.bubble::before {
+  content: "";
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: #111;
-  color: #fff;
-  border: 2px solid #ffff33;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 0 20px #ffff33;
-  max-width: 400px;
-  z-index: 1001;
-  transition: transform 0.3s ease;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 51, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
-
-.popup.show {
-  transform: translate(-50%, -50%) scale(1);
+.bubble:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 0 25px #ffff33, 0 0 35px #ffff33 inset;
 }
-
-.popup h2 {
-  margin-top: 0;
-  color: #ffff33;
+.bubble:hover::before {
+  opacity: 1;
 }
-
-.popup p {
-  color: #ccc;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -82,35 +115,52 @@ h1 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
   z-index: 1000;
 }
-
 .overlay.show {
-  display: block;
+  opacity: 1;
+  pointer-events: auto;
 }
-
-.button-home {
-  width: 35px;
-  height: 35px;
-  padding: 20px;
-  font-size: 16px;
+.popup {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  border-radius: 50%;
-  color: #0a0a0a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px #ffff33, 0 0 20px #ffff33 inset;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  z-index: 1002;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #111;
+  color: #fff;
+  border: 2px solid #ffff33;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 20px #ffff33;
+  max-width: 400px;
+  width: 90%;
+  z-index: 1001;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-.button-home:hover {
-  background-color: #ffff33;
-  color: #0a0a0a;
-  box-shadow: 0 0 20px #ffff33, 0 0 60px #ffff33;
+.popup.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.popup h2 {
+  margin-top: 0;
+  color: #ffff33;
+  text-align: center;
+}
+.popup p {
+  color: #ccc;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  .bubble {
+    width: 100px;
+    height: 100px;
+    padding: 30px;
+  }
 }

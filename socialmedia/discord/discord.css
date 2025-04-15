@@ -43,18 +43,31 @@ p {
   bottom: 20px;
   right: 20px;
   border-radius: 50%;
-  color: #0a0a0a;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px #9fa7ff, 0 0 20px #5865f2 inset;
   transition: all 0.3s ease;
   text-decoration: none;
   z-index: 1000;
+  background-color: transparent;
+  box-shadow: 0 0 10px #5865f2, 0 0 20px #5865f2 inset;
 }
 
 .button-home:hover {
-  background-color: #5865f2;
-  color: #0a0a0a;
+  transform: scale(1.1);
   box-shadow: 0 0 20px #5865f2, 0 0 60px #5865f2;
+  background: linear-gradient(45deg, #5865f2, #5865f2, #5865f2);
+}
+
+.button-home:hover img {
+  opacity: 1;
+}
+
+.button-home img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
