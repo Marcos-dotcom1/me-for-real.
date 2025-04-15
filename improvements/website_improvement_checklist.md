@@ -14,16 +14,12 @@ A summary of key areas to improve across all pages to enhance user experience an
 - 📱 Mobile menu toggle isn't working — needs fix
 - ⚪ Lightmode Issues:
   - 💾 Lightmode preference not saving in **local storage**
-- 🐞 Console throws an unexpected error — investigate!
 
 ---
 
 ## 🎸 Guitars
 
 - 🔙 optimize **Home button**
-- 🎴 Scatter the guitar cards more dynamically
-- 📝 Add a **description box** for clearity
-- 📱 Improve responsiveness
 
 ---
 
@@ -66,5 +62,6 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 - 🔗 Add link to personal **profile**
 - 🖼️ Include **pictures** where necessary
+- 📝Write Text **everywhere**
 
 ---

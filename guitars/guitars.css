@@ -25,7 +25,7 @@ body {
 }
 
 .card {
-  width: 250px;
+  width: min(90%, 250px);
   height: 350px;
   position: absolute;
   perspective: 1000px;
@@ -114,11 +114,11 @@ body {
   color: #b388ff;
   text-shadow: 0 0 10px rgba(179, 136, 255, 0.7);
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
 }
 
 .back p {
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   line-height: 1.5;
 }
 
@@ -128,7 +128,7 @@ body {
 }
 .card2 {
   top: 30%;
-  left: 40%;
+  left: 60%;
 }
 .card3 {
   top: 60%;
@@ -136,7 +136,7 @@ body {
 }
 .card4 {
   top: 90%;
-  left: 40%;
+  left: 55%;
 }
 .card5 {
   top: 120%;
@@ -238,4 +238,46 @@ body::after {
   background-color: #8a2be2;
   color: #0a0a0a;
   box-shadow: 0 0 20px #8a2be2, 0 0 60px #8a2be2;
+}
+
+@media (max-width: 900px) {
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .card {
+    position: static !important;
+    animation: none !important;
+    transform: none !important;
+    margin: 0;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .card {
+    position: static;
+    transform: none !important;
+    animation: none !important;
+    margin: 0 auto;
+  }
+
+  .card:hover {
+    transform: none;
+  }
 }
