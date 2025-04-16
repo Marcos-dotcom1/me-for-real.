@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
       updateMode(darkModeToggle.checked);
     });
   }
+});
+document.addEventListener("DOMContentLoaded", () => {
   const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
@@ -63,14 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
           navLinks.classList.remove("show");
         }
       });
-    });
-  }
-  const toggleMenu = document.querySelector(".mobile-menu-toggle");
-  const nav = document.querySelector("nav ul");
-  if (toggleMenu && nav) {
-    toggleMenu.addEventListener("click", () => {
-      nav.classList.toggle("show");
-      toggleMenu.classList.toggle("active");
     });
   }
 });
