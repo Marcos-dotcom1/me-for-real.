@@ -71,3 +71,57 @@ p {
   height: 24px;
   filter: brightness(0) invert(1);
 }
+.qr-section {
+  margin: 40px auto;
+}
+
+.qr-img {
+  width: 220px;
+  max-width: 90%;
+  border-radius: 50px;
+  box-shadow: 0 0 20px #e60023;
+}
+.pinterest-logo {
+  width: 15vw;
+  max-width: 80px;
+  min-width: 60px;
+  height: auto;
+  display: block;
+  margin: 0 auto 30px;
+  filter: drop-shadow(0 0 10px #e60023) drop-shadow(0 0 20px #e60023);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    filter: drop-shadow(0 0 10px #e60023);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #e60023);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #e60023);
+  }
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 60px #e60023;
+  z-index: -1;
+  pointer-events: none;
+  animation: glowBorder 6s ease-in-out infinite;
+}
+
+@keyframes glowBorder {
+  0%,
+  100% {
+    box-shadow: inset 0 0 40px #e60023;
+  }
+  50% {
+    box-shadow: inset 0 0 80px #e60023;
+  }
+}

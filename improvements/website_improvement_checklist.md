@@ -37,13 +37,10 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🌐 Social Media
 
-- 📄 Subpages feel **empty** — fill in with relevant content
-
 ---
 
 ## 🎁 Bonus
 
-- 🔗 Add link to personal **profile**
 - 🖼️ Include **pictures** where necessary
 - 📝Write Text **everywhere**
 
