@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+:root {
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-yellow: #ffff00;
+  --dark-bg: #0a0a12;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  touch-action: none;
+  font-family: "VT323", monospace;
+  background: var(--dark-bg);
+  color: var(--neon-cyan);
+  font-size: clamp(16px, 4vw, 24px);
+}
+
+#gameContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameCanvas {
+  border: 3px solid var(--neon-pink);
+  box-shadow: 0 0 20px var(--neon-pink);
+  image-rendering: pixelated;
+  max-width: 100%;
+  max-height: 70vh;
+  touch-action: none;
+}
+
+.message {
+  text-align: center;
+  margin: 2vh 5vw;
+  z-index: 1;
+  text-shadow: 0 0 10px var(--neon-cyan);
+  word-wrap: break-word;
+}
+
+#score {
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px var(--neon-yellow);
+}
+
+button {
+  padding: 1em 2em;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  background: var(--dark-bg);
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px var(--neon-cyan);
+  touch-action: manipulation;
+}
+
+@media (hover: hover) {
+  button:hover {
+    box-shadow: 0 0 15px var(--neon-cyan);
+    transform: scale(1.1);
+  }
+}
+.button-home {
+  width: 70px;
+  height: 70px;
+  padding: 20px;
+  font-size: 16px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  z-index: 1000;
+  background-color: transparent;
+  box-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00 inset;
+}
+
+.button-home:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ffff00, 0 0 60px #ffff00;
+  background: linear-gradient(45deg, #ffff00, #ffff00, #ffff00);
+}
+
+.button-home:hover img {
+  opacity: 1;
+}
+
+.button-home img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}

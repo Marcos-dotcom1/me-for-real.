@@ -10,8 +10,6 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🚀 Start Page
 
-- 🐱 add other "cat" page
-
 ---
 
 ## 🎸 Guitars
