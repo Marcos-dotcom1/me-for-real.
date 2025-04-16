@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("modeToggle");
   const darkModeToggle = document.getElementById("darkModeToggle");
 
-  // Apply saved mode on load
   const savedMode = localStorage.getItem("mode");
   if (savedMode === "light") {
     body.classList.add("light-mode");
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (darkModeToggle) darkModeToggle.checked = false;
   }
 
-  // Sync both toggles
   function updateMode(isLight) {
     body.classList.toggle("light-mode", isLight);
     localStorage.setItem("mode", isLight ? "light" : "dark");
