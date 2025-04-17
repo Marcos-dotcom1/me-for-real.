@@ -20,7 +20,7 @@ const cat = {
 };
 
 const obstacles = [];
-let obstacleSpawnRate = 100;
+let obstacleSpawnRate = 200;
 let backgroundStars = [];
 const particles = [];
 
@@ -109,7 +109,7 @@ function update() {
     cat.isGrounded = true;
   }
 
-  if (Math.random() * obstacleSpawnRate < 1) {
+  if (Math.random() < 1 / obstacleSpawnRate) {
     spawnObstacle();
   }
 
