@@ -132,7 +132,7 @@ body::before {
   z-index: 3;
   text-align: center;
   padding: clamp(1rem, 4vw, 3rem);
-  max-width: 90vw;
+  max-width: 88vw;
   background: none;
   border-radius: 0;
   box-shadow: none;

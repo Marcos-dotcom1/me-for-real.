@@ -1,6 +1,6 @@
 const titleText = "HEY, I'M MARCOS";
 const introText =
-  "I'm someone who enjoys creating, learning, and doing things differently. I've always had a strong sense of direction and a clear idea of what I want, and I'm not afraid to go after it. I like things that stand out, whether it's in design, music, or ideas. If something interests me, I dive into it fully. I'm not the type to follow the crowd—I'd rather build my own path. I value honesty, creativity, and a bit of boldness in everything I do. I don't believe in doing things halfway.";
+  "I'm someone who creates, explores, and rewrites the rules as I go. I've never been one to color inside the lines—or even use the same coloring book. I know what I want, and I go after it with everything I've got. Whether it's design, music, or whatever weird idea I'm obsessed with this week, I dive in headfirst. I don't follow trends—I make my own lane, preferably one with glowing lights and zero traffic. Honesty, creativity, and a healthy dose of boldness fuel everything I do. Half-measures? Never heard of them.";
 
 const titleEl = document.getElementById("title");
 const introEl = document.getElementById("intro");

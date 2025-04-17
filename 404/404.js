@@ -200,8 +200,8 @@ function gameOver() {
   isPlaying = false;
   document.querySelector(".message").innerHTML = `
           <h1>SYSTEM FAILURE</h1>
-          <p>FINAL SCORE: ${score}</p>
-          <button onclick="location.reload()">REBOOT</button>
+          <p>Final score: ${score}</p>
+          <button onclick="location.reload()">Restart</button>
       `;
   document.querySelector(".message").style.display = "block";
 }

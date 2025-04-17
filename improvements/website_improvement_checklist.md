@@ -39,6 +39,5 @@ A summary of key areas to improve across all pages to enhance user experience an
 ## 🎁 Bonus
 
 - 🖼️ Include **pictures** where necessary
-- 📝Write Text **everywhere**
 
 ---

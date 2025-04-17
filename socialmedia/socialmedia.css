@@ -174,3 +174,22 @@ footer {
   font-size: 0.8rem;
   color: #aa5599;
 }
+.follow-message {
+  font-size: 1rem;
+  color: #ff99cc;
+  text-align: center;
+  margin: 20px;
+  text-shadow: 0 0 10px #ff00aa, 0 0 20px #ff00aa;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
