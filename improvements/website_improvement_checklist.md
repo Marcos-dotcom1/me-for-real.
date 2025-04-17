@@ -40,4 +40,6 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🎁 Bonus
 
+- make website less laggy for **mobile users**
+
 ---
