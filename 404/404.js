@@ -135,6 +135,7 @@ function update() {
 }
 
 function draw() {
+  ctx.imageSmoothingEnabled = false;
   ctx.fillStyle = "#0a0a12";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -148,7 +149,7 @@ function draw() {
   ctx.shadowColor = "#00ffff";
   ctx.shadowBlur = 20;
 
-  ctx.drawImage(catSprite, 0, 0, 160, 160, cat.x, cat.y, cat.width, cat.height);
+  ctx.drawImage(catSprite, cat.x, cat.y, cat.width, cat.height);
 
   obstacles.forEach((obstacle) => {
     ctx.fillStyle = obstacle.color;
