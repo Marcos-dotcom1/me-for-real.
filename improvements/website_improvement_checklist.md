@@ -14,6 +14,8 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🎸 Guitars
 
+- add actual images and not **AI concepts**
+
 ---
 
 ## 🎬 Intro
@@ -37,7 +39,5 @@ A summary of key areas to improve across all pages to enhance user experience an
 ---
 
 ## 🎁 Bonus
-
-- 🖼️ Include **pictures** where necessary
 
 ---
