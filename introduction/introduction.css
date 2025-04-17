@@ -301,3 +301,23 @@ p {
     opacity: 0;
   }
 }
+@media (max-width: 768px) {
+  .scanline,
+  .grid-overlay,
+  .particles {
+    display: none;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 10px #00ff00;
+  }
+
+  h1 {
+    text-shadow: none;
+  }
+}
+@media (max-width: 768px) {
+  body::before {
+    filter: none;
+  }
+}

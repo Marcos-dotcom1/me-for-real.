@@ -66,3 +66,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 5000);
 });
+const isMobile = window.innerWidth < 768;
+const particleCount = isMobile ? 0 : 0;
