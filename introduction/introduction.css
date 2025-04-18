@@ -309,11 +309,21 @@ p {
   }
 
   .glow-border {
-    box-shadow: 0 0 10px #00ff00;
+    box-shadow: none;
   }
 
   h1 {
     text-shadow: none;
+    animation:  none;
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: none;
+    }
+    50% {
+      transform: none;
+    }
   }
 }
 @media (max-width: 768px) {
