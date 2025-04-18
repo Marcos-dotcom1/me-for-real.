@@ -679,11 +679,15 @@ a {
   .hero-content h1 {
     font-size: 2.5rem;
     margin-bottom: 15px;
+    text-shadow: none;
+    animation:  none;
   }
 
   .hero-content p {
     font-size: 1.1rem;
     margin: 15px 20px;
+    text-shadow: none;
+    animation:  none;
   }
 
   .hero-content button {
@@ -714,14 +718,20 @@ a {
 @media (max-width: 576px) {
   .hero-content h1 {
     font-size: 2rem;
+    text-shadow: none;
+    animation:  none;
   }
 
   .hero-content p {
     font-size: 1rem;
+    text-shadow: none;
+    animation:  none;
   }
 
   .logo a {
     font-size: 20px;
+    animation:  none;
+    text-shadow: none;
   }
 
   .carousel-track img {
