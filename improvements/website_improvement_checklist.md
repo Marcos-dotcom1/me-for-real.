@@ -28,8 +28,6 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🧠 Interests
 
-- make buttons pressable
-
 ---
 
 ## 🐈 Cat Page(s)
