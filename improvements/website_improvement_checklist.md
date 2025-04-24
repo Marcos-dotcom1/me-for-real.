@@ -32,6 +32,8 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🐈 Cat Page(s)
 
+- 404 Connect to database for Highscore system
+
 ---
 
 ## 🌐 Social Media
@@ -39,5 +41,7 @@ A summary of key areas to improve across all pages to enhance user experience an
 ---
 
 ## 🎁 Bonus
+
+- AI Chatbot page
 
 ---
