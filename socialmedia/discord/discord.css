@@ -76,7 +76,6 @@ p {
 .discord-logo {
   width: 15vw;
   max-width: 100px;
-  min-width: 60px;
   height: auto;
   display: block;
   margin: 0 auto 30px;
@@ -126,4 +125,37 @@ body::before {
   max-width: 90%;
   border-radius: 35px;
   box-shadow: 0 0 20px #5865f2;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .Discordbutton {
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 90%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  .qr-img {
+    width: 50%;
+  }
+
+  .button-home {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+
+  .discord-logo {
+    width: 40vw;
+    max-width: 80px;
+  }
 }
