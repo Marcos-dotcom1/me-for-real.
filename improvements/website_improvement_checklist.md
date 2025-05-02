@@ -26,6 +26,8 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🧠 Interests
 
+- Add interests
+
 ---
 
 ## 🐈 Cat Page(s)
@@ -36,10 +38,13 @@ A summary of key areas to improve across all pages to enhance user experience an
 
 ## 🌐 Social Media
 
+- Add other Media
+
 ---
 
 ## 🎁 Bonus
 
 - AI Chatbot page
+- Make favicon bigger
 
 ---
